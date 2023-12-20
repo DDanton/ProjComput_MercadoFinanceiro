@@ -84,6 +84,8 @@ A função `return_histogram gera um histograma dos retornos ou log-retornos de 
 - `edgecolor` (str, padrão='black'): Cor das bordas das barras do histograma.
 - `alpha` (float, padrão=0.7): Transparência das barras do histograma.
 
+#### Retorno : 
+Um objeto de eixo (axis) do matplotlib contendo o histograma gerado.
 
 ####################################################################################################
 
