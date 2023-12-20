@@ -57,7 +57,7 @@ googl = stock_data('GOOGL')
 
 # Executar a simulação de preço com tendência ascendente
 PriceSimulationFunc_trend(googl, steps=100, num_simulations=8, distribution='MixGaussians', trend='up', trend_strength=0.1)
-```
+´´´
 
 
 
