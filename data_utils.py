@@ -59,11 +59,11 @@ def return_histogram(data, scale=None, bins=100, color='blue', edgecolor='black'
     if scale == 'log':
         mean = data['Return'].mean()
         std = data['Return'].std()
-        y = data['Log-Return'].hist(bins=bins, color=color, edgecolor=edgecolor, alpha=alpha)
+        y = data['Return'].hist(bins=bins, color=color, edgecolor=edgecolor, alpha=alpha)
     else:
         mean = data['Log-Return'].mean()
         std = data['Log-Return'].std()
-        y = data['Return'].hist(bins=bins, color=color, edgecolor=edgecolor, alpha=alpha)
+        y = data['Log-Return'].hist(bins=bins, color=color, edgecolor=edgecolor, alpha=alpha)
 
     y.set_xlabel('returns')
     y.set_ylabel('freq')
