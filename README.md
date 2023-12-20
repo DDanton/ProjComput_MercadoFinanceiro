@@ -156,11 +156,76 @@ MixtureModel(googl, mode='normal')
 
 ## Classe `StockAnalyzer`
 
-### Descrição:
-A classe `StockAnalyzer` é projetada para análise de dados financeiros relacionados a ações. Permite a geração de dados de retorno, plotagem de matrizes de correlação, pairplots e gráficos de retornos ao longo do tempo.
+A classe `StockAnalyzer` é responsável por analisar e visualizar dados históricos de retornos de ações. Ela oferece funcionalidades para carregar dados, calcular retornos e gerar visualizações informativas.
 
+## Métodos
 
+### `__init__(self, stocks, start_date='2019-01-02')`
 
+#### Descrição
+Inicializa uma instância da classe `StockAnalyzer`.
+
+#### Parâmetros
+- `stocks` (lista): Lista de símbolos de ações a serem analisados.
+- `start_date` (string, opcional): Data de início para análise. O padrão é '2019-01-02'.
+
+### `stock_data(self, stock)`
+
+#### Descrição
+Carrega dados históricos de uma ação específica.
+
+#### Parâmetros
+- `stock` (string): Símbolo da ação a ser carregada.
+
+#### Retorno
+Um DataFrame contendo dados históricos da ação.
+
+### `generate_returns_data(self, return_scale='normal')`
+
+#### Descrição
+Gera dados de retornos a partir dos dados históricos das ações.
+
+#### Parâmetros
+- `return_scale` (string, opcional): Escala dos retornos ('normal' ou 'log'). O padrão é 'normal'.
+
+#### Retorno
+Um DataFrame contendo os retornos das ações.
+
+### `plot_correlation_matrix(self)`
+
+#### Descrição
+Plota a matriz de correlação entre os retornos das ações.
+
+### `plot_pairplot(self)`
+
+#### Descrição
+Plota um pairplot dos retornos das ações.
+
+### `plot_returns_over_time(self, separate_plots=False)`
+
+#### Descrição
+Plota os retornos das ações ao longo do tempo.
+
+#### Parâmetros
+- `separate_plots` (bool, opcional): Se verdadeiro, plota gráficos separados para cada ação. O padrão é falso.
+
+## Exemplo de Uso
+
+```python
+from analytics import StockAnalyzer
+
+# Criar uma instância de StockAnalyzer
+analyzer = StockAnalyzer(['AAPL', 'GOOGL'], start_date='2020-01-01')
+
+# Plotar matriz de correlação
+analyzer.plot_correlation_matrix()
+
+# Plotar pairplot
+analyzer.plot_pairplot()
+
+# Plotar retornos ao longo do tempo
+analyzer.plot_returns_over_time(separate_plots=True)
+```
 
 
 
