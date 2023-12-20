@@ -111,7 +111,7 @@ Alguns dos parâmetros tem origem da biblioteca matplotlib
 #### Exemplo de uso
 ```python
 from distributions import return_distributions
-from sua_biblioteca import stock_data
+from data_utils import stock_data
 
 # Carregar dados
 googl = stock_data('GOOGL')
