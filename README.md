@@ -65,6 +65,7 @@ Esta função realiza uma simulação de preço com tendência ascendente ou des
 - `distribution` (str): A distribuição a ser usada ('MixGaussians' ou 't-distribution').
 - `trend` (str): A tendência dos preços ('up', 'down' ou 'none').
 - `trend_strength` (float): A força da tendência.
+
 ```
 ### Exemplo de Uso
 
