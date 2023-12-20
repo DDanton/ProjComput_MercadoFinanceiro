@@ -30,10 +30,11 @@ Certifique-se de ter as seguintes bibliotecas instaladas antes de executar o có
 - [scikit-learn](https://scikit-learn.org/)
 - [scipy](https://www.scipy.org/)
 
-
+###############################################################################################
 # Uso - Exemplos
 
 ##  Módulo `data_utils`
+Funções desse módulo:
 
 ### Função `stock_data`
 
@@ -44,7 +45,7 @@ A função `stock_data` recebe o símbolo de ticker de uma ação e uma data de 
 - `ticker` (str): Símbolo da ação para recuperar dados.
 - `start_date` (str, padrão='2019-01-02'): Data de início para recuperar dados. Se não fornecida, a data padrão é '2019-01-02'.
 
-### Exemplo de Uso
+#### Exemplo de Uso
 ```python
 
 # Exemplo de uso
@@ -55,6 +56,22 @@ start_date = '2022-01-01'
 stock_data_aapl = stock_data(ticker_symbol, start_date)
 print(stock_data_aapl.head())
 ```
+
+### Função `skew_kurt`
+
+#### Descrição:
+A função skew_kurt calcula a assimetria (skewness) e a curtose (kurtosis) de um conjunto de dados. Pode operar em dois modos: 'standard', que utiliza os retornos brutos, e 'log', que utiliza os log-retornos.
+
+#### Parâmetros
+
+- `data` (DataFrame): O conjunto de dados contendo informações financeiras.
+- `mode` (str, padrão='standard'): Modo de cálculo, podendo ser 'standard' para retornos brutos ou 'log' para log-retornos.
+
+
+
+
+####################################################################################################
+
 
 ## Função `PriceSimulationFunc_trend`
 
