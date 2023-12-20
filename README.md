@@ -419,7 +419,6 @@ aapl_predictor.extrapolate_test(close_model,future_steps =100)
 ```
 
 
-## Esse video é muito interessante para que vocês consigam mexer também (a partir dos 10minutos fica mais relevante): https://www.youtube.com/watch?v=7cNP3AE49Bg 
 # 
 #
 #
