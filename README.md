@@ -33,12 +33,14 @@ Certifique-se de ter as seguintes bibliotecas instaladas antes de executar o có
 
 # Uso - Exemplos
 
-## Função `stock_data`
+##  Módulo `data_utils`
 
-### Descrição
+### Função `stock_data`
+
+#### Descrição
 A função `stock_data` recebe o símbolo de ticker de uma ação e uma data de início (opcional) e retorna dados históricos dessa ação a partir da data especificada. Os dados incluem informações como preço de fechamento, retorno simples e retorno logarítmico.
 
-### Parâmetros
+#### Parâmetros
 - `ticker` (str): Símbolo da ação para recuperar dados.
 - `start_date` (str, padrão='2019-01-02'): Data de início para recuperar dados. Se não fornecida, a data padrão é '2019-01-02'.
 
