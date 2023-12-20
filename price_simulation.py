@@ -2,9 +2,15 @@
 import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.mixture import GaussianMixture
-from scipy.stats import t
+from scipy.stats import t 
+import pandas as pd
+import numpy as np
+import matplotlib
+matplotlib.use('TkAgg')  # ou outro backend suportado
+
 
 def PriceSimulationFunc(data, steps=10, distribution='MixGaussians'):
+    data = pd.DataFrame(data)
     p0 = data.iloc[-1]['Close']
     last_date = data.iloc[-1]['Date']
     data_r = data['Return'].dropna().to_numpy().reshape(-1, 1)
@@ -20,6 +26,11 @@ def PriceSimulationFunc(data, steps=10, distribution='MixGaussians'):
         num_samples = steps
         ''' Uma lista de numeros aleatorios que seguem a distribuição das MixGaussians'''
         samples = model.sample(num_samples)[0]
+        samples_list= []
+        for i in samples:
+            actual_value  = i[0]
+            samples_list.append(actual_value)
+        samples = np.array(samples_list)
 
         while count < steps:
             R = samples[count]
@@ -37,7 +48,7 @@ def PriceSimulationFunc(data, steps=10, distribution='MixGaussians'):
             count += 1
 
     # Configurações do plot
-    sns.set(style="whitegrid")  # Estilo de fundo do seaborn
+    #sns.set(style="whitegrid")  # Estilo de fundo do seaborn
     plt.figure(figsize=(10, 6))  # Tamanho do gráfico
 
     # Plot dos preços

@@ -5,7 +5,8 @@ from sklearn.mixture import GaussianMixture
 from scipy.stats import probplot, norm, t
 import numpy as np
 import matplotlib.pyplot as plt
-
+import matplotlib
+matplotlib.use('TkAgg')  # ou outro backend suportado
 ## vou criar uma funcao que irá verificar a estacionaridade dos valores, e irá empregar a quantidade necessária de diferenciação
 ## ela retorna o número de diferenciações mais a lista diferenciada e cria um conjunto de dados chamado Log_price
 ## o Log price serviria para caso o modelo ARIMA fosse ser implementado com os preços diretamente e nao com os retornos
@@ -65,11 +66,13 @@ def diff_times_prices(data):
     
     return return_list
 
+
 def PriceSimulationFunc_trend(data, steps=10, num_simulations=1, distribution='MixGaussians', trend='none', trend_strength=0.01):
+    data = pd.DataFrame(data)
     p0 = data.iloc[-1]['Close']
     last_date = data.iloc[-1]['Date']
     data_r = data['Return'].dropna().to_numpy().reshape(-1, 1)
-    
+
     count = 0
     all_prices = []
 
@@ -88,9 +91,16 @@ def PriceSimulationFunc_trend(data, steps=10, num_simulations=1, distribution='M
             model.fit(data_r)
             num_samples = steps
             samples = model.sample(num_samples)[0]
+            samples_list= []
+            for i in samples:
+              actual_value  = i[0]
+              samples_list.append(actual_value)
+            samples = np.array(samples_list)
+
+
 
             for i in range(steps):
-                R = samples[i] * trend_factors[i]
+                R = samples[i]  *trend_factors[i]
                 price = prices[-1] * (1 + R)
                 prices.append(price)
 
@@ -102,7 +112,6 @@ def PriceSimulationFunc_trend(data, steps=10, num_simulations=1, distribution='M
                 price = prices[-1] * (1 + R)
                 prices.append(price)
 
-
         all_prices.append(prices)
 
     # Plotar todas as simulações
@@ -113,5 +122,7 @@ def PriceSimulationFunc_trend(data, steps=10, num_simulations=1, distribution='M
     plt.ylabel('Price')
     plt.title(f'Multiple Price Simulations ({num_simulations} simulations)')
     plt.show()
+
+
 
 
