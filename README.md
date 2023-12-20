@@ -38,14 +38,14 @@ Certifique-se de ter as seguintes bibliotecas instaladas antes de executar o có
 Esta função realiza uma simulação de preço com tendência ascendente ou descendente, usando uma distribuição de mistura de gaussianas ou uma distribuição t. A função aceita dados históricos de preços, como um DataFrame do pandas.
 
 ### Parâmetros
-
+```
 - `data` (DataFrame): O DataFrame contendo os dados históricos de preços.
 - `steps` (int): O número de etapas para simulação.
 - `num_simulations` (int): O número de simulações a serem executadas.
 - `distribution` (str): A distribuição a ser usada ('MixGaussians' ou 't-distribution').
 - `trend` (str): A tendência dos preços ('up', 'down' ou 'none').
 - `trend_strength` (float): A força da tendência.
-
+```
 ### Exemplo de Uso
 
 ```python
@@ -57,7 +57,7 @@ googl = stock_data('GOOGL')
 
 # Executar a simulação de preço com tendência ascendente
 PriceSimulationFunc_trend(googl, steps=100, num_simulations=8, distribution='MixGaussians', trend='up', trend_strength=0.1)
-´´´
+```
 
 
 
