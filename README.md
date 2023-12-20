@@ -108,6 +108,18 @@ Alguns dos parâmetros tem origem da biblioteca matplotlib
 - `edgecolor` (str, padrão='black'): Cor das bordas das barras do histograma.
 - `alpha` (float, padrão=0.7): Transparência das barras do histograma.
 
+#### Exemplo de uso
+```python
+from distributions import return_distributions
+from sua_biblioteca import stock_data
+
+# Carregar dados
+googl = stock_data('GOOGL')
+
+# Gerar gráficos de distribuição para retornos padrão
+return_distributions(googl, distribution='normal', mode='standard')
+```
+
 
 
 
