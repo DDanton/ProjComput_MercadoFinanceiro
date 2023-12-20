@@ -46,6 +46,8 @@ A função `stock_data` recebe o símbolo de ticker de uma ação e uma data de 
 ```python
 
 # Exemplo de uso
+from data_utils import stock_data
+
 ticker_symbol = 'AAPL'
 start_date = '2022-01-01'
 stock_data_aapl = stock_data(ticker_symbol, start_date)
