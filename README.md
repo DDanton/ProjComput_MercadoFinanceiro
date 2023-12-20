@@ -320,7 +320,7 @@ Este método gera um gráfico com a média móvel exponencial de uma determinada
 Para utilizar a classe `StockPlotter`, primeiro, instancie um objeto da classe com o símbolo da ação desejada:
 
 ```python
-from data_utils import StockPlotter
+from plotter.py import StockPlotter
 
 # Criar uma instância do StockPlotter para a ação 'AAPL' com início em '2022-01-01'
 plotter_aapl = StockPlotter(ticker='AAPL', start_date='2022-01-01')
