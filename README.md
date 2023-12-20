@@ -315,7 +315,27 @@ Este método gera um gráfico com a média móvel exponencial de uma determinada
   - `title` (str, opcional): Título do gráfico. O padrão é 'Exponential Moving Average'.
   - `figsize` (tuple, opcional): Tamanho da figura. O padrão é (10, 6).
 
+### Exemplo de Uso da Classe `StockPlotter`
 
+Para utilizar a classe `StockPlotter`, primeiro, instancie um objeto da classe com o símbolo da ação desejada:
+
+```python
+from data_utils import StockPlotter
+
+# Criar uma instância do StockPlotter para a ação 'AAPL' com início em '2022-01-01'
+plotter_aapl = StockPlotter(ticker='AAPL', start_date='2022-01-01')
+# Plotar o preço de fechamento da ação ao longo do tempo
+plotter_aapl.plot_stock(column='Close', title='AAPL Stock Price Over Time', figsize=(12, 8))
+# Plotar os preços de fechamento e abertura da ação ao longo do tempo
+plotter_aapl.plot_multiple_stocks(columns=['Close', 'Open'], title='AAPL Closing and Opening Prices Over Time', figsize=(12, 8))
+# Plotar a média móvel de 20 dias do preço de fechamento da ação
+plotter_aapl.plot_moving_average(column='Close', window=20, title='AAPL 20-Day Moving Average', figsize=(12, 8))
+# Plotar as bandas de Bollinger para o preço de fechamento da ação
+plotter_aapl.plot_bollinger_bands(column='Close', window=20, num_std=2, title='AAPL Bollinger Bands', figsize=(12, 8))
+# Plotar a média móvel exponencial de 20 dias do preço de fechamento da ação
+plotter_aapl.plot_exponential_moving_average(column='Close', span=20, title='AAPL 20-Day Exponential Moving Average', figsize=(12, 8))
+
+```
 
 
 
