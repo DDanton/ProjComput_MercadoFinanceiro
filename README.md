@@ -154,7 +154,10 @@ googl = stock_data('GOOGL')
 MixtureModel(googl, mode='normal')
 ```
 
+## Classe `StockAnalyzer`
 
+### Descrição:
+A classe `StockAnalyzer` é projetada para análise de dados financeiros relacionados a ações. Permite a geração de dados de retorno, plotagem de matrizes de correlação, pairplots e gráficos de retornos ao longo do tempo.
 
 
 
