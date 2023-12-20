@@ -120,6 +120,40 @@ googl = stock_data('GOOGL')
 return_distributions(googl, distribution='normal', mode='standard')
 ```
 
+################
+
+##  Módulo `gaussian_mix`
+Funções desse módulo:
+
+### Função `MixtureModel`
+
+#### Descrição:
+A função MixtureModel gera um histograma dos retornos ou log-retornos de um conjunto de dados financeiros, junto com um modelo de mistura gaussiana que se ajusta aos dados. O modelo de mistura gaussiana é composto por dois componentes gaussianos. A função imprime os pesos, médias e variâncias dos componentes.
+
+#### Parâmetros:
+
+- `data` (DataFrame): O conjunto de dados contendo informações financeiras.
+- `mode` (str, padrão='normal'): Modo de cálculo, podendo ser 'normal' para retornos brutos ou 'log' para log-retornos.
+- `bins` (int, padrão=100): Número de bins no histograma.
+- `color` (str, padrão='blue'): Cor das barras do histograma.
+- `edgecolor` (str, padrão='black'): Cor das bordas das barras do histograma.
+- `alpha` (float, padrão=0.7): Transparência das barras do histograma.
+
+#### Retorno:
+Um histograma com curva de ajuste do modelo de mistura gaussiana.
+
+```python
+
+from distributions import MixtureModel
+from sua_biblioteca import stock_data
+
+# Carregar dados
+googl = stock_data('GOOGL')
+
+# Gerar gráfico de modelo de mistura para retornos padrão
+MixtureModel(googl, mode='normal')
+```
+
 
 
 
