@@ -67,7 +67,22 @@ A função skew_kurt calcula a assimetria (skewness) e a curtose (kurtosis) de u
 - `data` (DataFrame): O conjunto de dados contendo informações financeiras.
 - `mode` (str, padrão='standard'): Modo de cálculo, podendo ser 'standard' para retornos brutos ou 'log' para log-retornos.
 
+#### Retorno:
+Uma lista contendo dois elementos: o primeiro é a skewness e o segundo é a kurtosis.
 
+### Função `return_histogram`
+
+#### Descrição:
+A função `return_histogram gera um histograma dos retornos ou log-retornos de um conjunto de dados financeiros. Pode operar em dois modos: 'standard', que utiliza os retornos brutos, e 'log', que utiliza os log-retornos.
+
+#### Parâmetros
+
+- `data` (DataFrame): O conjunto de dados contendo informações financeiras.
+- `scale` (str, padrão=None): Modo de escala para os dados, podendo ser 'log' para log-retornos.
+- `bins` (int, padrão=100): Número de bins no histograma.
+- `color` (str, padrão='blue'): Cor das barras do histograma.
+- `edgecolor` (str, padrão='black'): Cor das bordas das barras do histograma.
+- `alpha` (float, padrão=0.7): Transparência das barras do histograma.
 
 
 ####################################################################################################
