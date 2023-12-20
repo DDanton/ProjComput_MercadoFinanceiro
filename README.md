@@ -227,6 +227,27 @@ analyzer.plot_pairplot()
 analyzer.plot_returns_over_time(separate_plots=True)
 ```
 
+# Função `PriceSimulationFunc`
+
+A função `PriceSimulationFunc` realiza uma simulação estocástica de preços com base na distribuição dos retornos das ações. A simulação pode ser realizada usando uma distribuição de Mixture of Gaussians ou uma distribuição t.
+
+## Parâmetros
+- `data` (DataFrame): DataFrame contendo os dados históricos de preços.
+- `steps` (int, opcional): O número de etapas para a simulação. O padrão é 10.
+- `distribution` (str, opcional): A distribuição a ser utilizada ('MixGaussians' ou 't-distribution'). O padrão é 'MixGaussians'.
+
+## Exemplo de Uso
+
+```python
+from price_simulation import PriceSimulationFunc
+from data_utils import stock_data
+
+# Carregar dados
+googl = stock_data('GOOGL')
+
+# Executar simulação de preços com distribuição de Mixture of Gaussians
+PriceSimulationFunc(googl, steps=20, distribution='MixGaussians')
+```
 
 
 
