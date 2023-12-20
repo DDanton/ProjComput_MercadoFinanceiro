@@ -31,7 +31,7 @@ Certifique-se de ter as seguintes bibliotecas instaladas antes de executar o có
 - [scipy](https://www.scipy.org/)
 
 
-# Explicação/Uso das classes, metodos e funcoes
+# Explicação/Uso das classes, métodos e funções 
 
 ##  Módulo `data_utils`
 Funções desse módulo:
