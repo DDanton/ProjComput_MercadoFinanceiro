@@ -154,7 +154,7 @@ googl = stock_data('GOOGL')
 MixtureModel(googl, mode='normal')
 ```
 
-## Classe `StockAnalyzer`
+# Classe `StockAnalyzer`
 
 A classe `StockAnalyzer` é responsável por analisar e visualizar dados históricos de retornos de ações. Ela oferece funcionalidades para carregar dados, calcular retornos e gerar visualizações informativas.
 
