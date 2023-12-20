@@ -1,5 +1,5 @@
 # ProjPythonStockPrices
-./Plots/Dougauss.png
+![Douglas](./Plots/Dougauss.png)
 ## Descrição
 Este projeto tem como objetivo desenvolver funcionalidades que utilizem dados de ações retirados e tratados da biblioteca
 yfinance. Com isso, tem-se a ideia de através das series temporais a aplicação automatizada de modelos de simulação 
