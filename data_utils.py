@@ -2,6 +2,7 @@
 import yfinance as yf
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 def stock_data(ticker, start_date='2019-01-02'):
     data = yf.Ticker(ticker)
@@ -53,7 +54,7 @@ def skew_kurt(data,mode = 'standard'):
 
 
 def return_histogram(data, scale=None, bins=100, color='blue', edgecolor='black', alpha=0.7):
-    import matplotlib.pyplot as plt
+    data = pd.DataFrame(data)
 
     if scale == 'log':
         mean = data['Return'].mean()
