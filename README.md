@@ -371,6 +371,52 @@ googl = stock_data('GOOGL')
 PriceSimulationFunc_trend(googl, steps=100, num_simulations=8, distribution='MixGaussians', trend='up', trend_strength=0.1)
 ```
 
+# Classe `ARIMAPredictor`
+
+A classe `ARIMAPredictor` é projetada para realizar previsões usando o modelo ARIMA (AutoRegressive Integrated Moving Average) em séries temporais financeiras. O ARIMA é um modelo estatístico que incorpora componentes autoregressivos, integrativos e de média móvel para modelar padrões temporais em dados.
+
+## Métodos
+
+### Método `__init__(self, data, column='Close', n_test=30)`
+
+O método de inicialização recebe os dados temporais (`data`), o nome da coluna a ser utilizada (`column` - padrão é 'Close') e o número de pontos de teste (`n_test` - padrão é 30).
+
+### Método `split_data(self)`
+
+Divide os dados em conjuntos de treinamento e teste, onde os últimos `n_test` pontos são utilizados para avaliação do modelo.
+
+### Método `fit_model(self)`
+
+Ajusta um modelo ARIMA aos dados de treinamento utilizando a biblioteca `pmdarima` para encontrar automaticamente os melhores parâmetros do modelo.
+
+### Método `plot_result(self, model)`
+
+Plota o ajuste do modelo nos dados de treinamento, a previsão nos dados de teste e a faixa de confiança.
+
+### Método `plot_test(self, model)`
+
+Plota a previsão do modelo nos dados de teste junto com a faixa de confiança.
+
+### Método `extrapolate_test(self, model, future_steps=10)`
+
+Realiza uma extrapolação do modelo para `future_steps` pontos adicionais além dos dados de teste, exibindo a previsão e a faixa de confiança.
+
+## Exemplo de Uso
+
+```python
+from arima_forecast import ARIMAPredictor
+from data_utils import stock_data
+
+aapl = stock_data('AAPL')
+aapl['Date'] = pd.to_datetime(aapl['Date'])
+aapl.set_index('Date', inplace=True)
+aapl = aapl.dropna()
+aapl_predictor = ARIMAPredictor(aapl, column='Close')
+close_model = aapl_predictor.fit_model()
+aapl_predictor.plot_result(close_model)
+aapl_predictor.plot_test(close_model)
+aapl_predictor.extrapolate_test(close_model,future_steps =100)
+```
 
 
 ## Esse video é muito interessante para que vocês consigam mexer também (a partir dos 10minutos fica mais relevante): https://www.youtube.com/watch?v=7cNP3AE49Bg 
