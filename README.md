@@ -1,5 +1,15 @@
 # ProjPythonStockPrices
-![Douglas](./Plots/Dougauss.png)
+![Douglas](./Plots/mCor1.png)
+![Douglas](./Plots/mCor2.png)
+![Douglas](./Plots/stockPrice.png)
+![Douglas](./Plots/movingAverage.png)
+![Douglas](./Plots/expMovingAverage.png)
+![Douglas](./Plots/100simulations.png)
+![Douglas](./Plots/bollingBands.png)
+![Douglas](./Plots/ARIMAforecastTest.png)
+![Douglas](./Plots/ARIMAforecastForClose.png)
+![Douglas](./Plots/ARIMAextrapolation.png)
+
 ## Descrição
 Este projeto tem como objetivo desenvolver funcionalidades que utilizem dados de ações retirados e tratados da biblioteca
 yfinance. Com isso, tem-se a ideia de através das series temporais a aplicação automatizada de modelos de simulação 
