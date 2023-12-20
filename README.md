@@ -30,7 +30,7 @@ Certifique-se de ter as seguintes bibliotecas instaladas antes de executar o có
 - [scikit-learn](https://scikit-learn.org/)
 - [scipy](https://www.scipy.org/)
 
-###############################################################################################
+
 # Uso - Exemplos
 
 ##  Módulo `data_utils`
@@ -88,6 +88,33 @@ A função `return_histogram gera um histograma dos retornos ou log-retornos de 
 Um objeto de eixo (axis) do matplotlib contendo o histograma gerado.
 
 ####################################################################################################
+
+##  Módulo `distributions`
+Funções desse módulo:
+
+### Função `return_distributions`
+
+#### Descrição:
+A função return_distributions gera dois gráficos para visualização da distribuição dos retornos ou log-retornos de um conjunto de dados financeiros. O primeiro gráfico mostra o histograma dos dados, com uma sobreposição da curva de ajuste (normal ou t-distribution). O segundo gráfico é o QQ-plot (Quantile-Quantile plot), que compara os quantis teóricos com os quantis observados, proporcionando uma visualização da adequação da distribuição escolhida.
+
+#### Parâmetros
+Alguns dos parâmetros tem origem da biblioteca matplotlib
+
+- `data` (DataFrame): O conjunto de dados contendo informações financeiras.
+- `distribution` (str, padrão='normal'): Tipo de distribuição a ser ajustada ('normal' ou 't-distribution').
+- `mode` (str, padrão='standard'): Modo de cálculo, podendo ser 'standard' para retornos brutos ou 'log' para log-retornos.
+- `bins` (int, padrão=100): Número de bins no histograma.
+- `color` (str, padrão='blue'): Cor das barras do histograma.
+- `edgecolor` (str, padrão='black'): Cor das bordas das barras do histograma.
+- `alpha` (float, padrão=0.7): Transparência das barras do histograma.
+
+
+
+
+
+
+
+
 
 
 ## Função `PriceSimulationFunc_trend`
