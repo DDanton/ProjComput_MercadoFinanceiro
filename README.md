@@ -31,7 +31,7 @@ Certifique-se de ter as seguintes bibliotecas instaladas antes de executar o có
 - [scipy](https://www.scipy.org/)
 
 
-# Uso - Exemplos
+# Explicação/Uso das classes, metodos e funcoes
 
 ##  Módulo `data_utils`
 Funções desse módulo:
@@ -248,6 +248,73 @@ googl = stock_data('GOOGL')
 # Executar simulação de preços com distribuição de Mixture of Gaussians
 PriceSimulationFunc(googl, steps=20, distribution='MixGaussians')
 ```
+
+# Classe `StockPlotter`
+
+A classe `StockPlotter` é uma ferramenta para visualização de dados históricos de preços de ações, proporcionando facilidade na criação de gráficos informativos e análises visuais.
+
+## Métodos
+
+### Método `__init__(self, ticker, start_date='2022-01-01', end_date=None)`
+
+- **Parâmetros**
+  - `ticker` (str): Símbolo da ação a ser analisada.
+  - `start_date` (str, opcional): Data de início para a coleta de dados. O padrão é '2022-01-01'.
+  - `end_date` (str, opcional): Data de término para a coleta de dados. Se não fornecida, será utilizada a data atual.
+
+### Método `get_stock_data(self)`
+
+Este método utiliza a biblioteca Yahoo Finance para baixar dados históricos de preços da ação especificada.
+
+### Método `plot_stock(self, column='Close', title='Stock Price', figsize=(10, 6))`
+
+Este método gera um gráfico de linha para o preço da ação ao longo do tempo.
+
+- **Parâmetros**
+  - `column` (str, opcional): Coluna a ser plotada. O padrão é 'Close'.
+  - `title` (str, opcional): Título do gráfico. O padrão é 'Stock Price'.
+  - `figsize` (tuple, opcional): Tamanho da figura. O padrão é (10, 6).
+
+### Método `plot_multiple_stocks(self, columns=['Close'], title='Stock Prices', figsize=(10, 6))`
+
+Este método gera um gráfico de linha para vários preços de ações ao longo do tempo.
+
+- **Parâmetros**
+  - `columns` (list, opcional): Lista de colunas a serem plotadas. O padrão é ['Close'].
+  - `title` (str, opcional): Título do gráfico. O padrão é 'Stock Prices'.
+  - `figsize` (tuple, opcional): Tamanho da figura. O padrão é (10, 6).
+
+### Método `plot_moving_average(self, column='Close', window=20, title='Moving Average', figsize=(10, 6))`
+
+Este método gera um gráfico com a média móvel de uma determinada coluna ao longo do tempo.
+
+- **Parâmetros**
+  - `column` (str, opcional): Coluna a ser utilizada para a média móvel. O padrão é 'Close'.
+  - `window` (int, opcional): Janela para o cálculo da média móvel. O padrão é 20.
+  - `title` (str, opcional): Título do gráfico. O padrão é 'Moving Average'.
+  - `figsize` (tuple, opcional): Tamanho da figura. O padrão é (10, 6).
+
+### Método `plot_bollinger_bands(self, column='Close', window=20, num_std=2, title='Bollinger Bands', figsize=(10, 6))`
+
+Este método gera um gráfico com as bandas de Bollinger para a ação especificada.
+
+- **Parâmetros**
+  - `column` (str, opcional): Coluna a ser utilizada para as bandas de Bollinger. O padrão é 'Close'.
+  - `window` (int, opcional): Janela para o cálculo das bandas de Bollinger. O padrão é 20.
+  - `num_std` (float, opcional): Número de desvios padrão para a construção das bandas. O padrão é 2.
+  - `title` (str, opcional): Título do gráfico. O padrão é 'Bollinger Bands'.
+  - `figsize` (tuple, opcional): Tamanho da figura. O padrão é (10, 6).
+
+### Método `plot_exponential_moving_average(self, column='Close', span=20, title='Exponential Moving Average', figsize=(10, 6))`
+
+Este método gera um gráfico com a média móvel exponencial de uma determinada coluna ao longo do tempo.
+
+- **Parâmetros**
+  - `column` (str, opcional): Coluna a ser utilizada para a média móvel exponencial. O padrão é 'Close'.
+  - `span` (int, opcional): Parâmetro de suavização para o cálculo da média móvel exponencial. O padrão é 20.
+  - `title` (str, opcional): Título do gráfico. O padrão é 'Exponential Moving Average'.
+  - `figsize` (tuple, opcional): Tamanho da figura. O padrão é (10, 6).
+
 
 
 
