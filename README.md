@@ -1,4 +1,5 @@
 # ProjPythonStockPrices
+## Descrição
 Este projeto tem como objetivo desenvolver funcionalidades que utilizem dados de ações retirados e tratados da biblioteca
 yfinance. Com isso, tem-se a ideia de através das series temporais a aplicação automatizada de modelos de simulação 
 de preços utilizando uma abordagem de monte Carlo/ processos estocásticos por caminhos aleatórios e a utilização do modelo ARIMA de Machine Learning.
