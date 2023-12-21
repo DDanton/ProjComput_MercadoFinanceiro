@@ -6,8 +6,36 @@ yfinance. Com isso, tem-se a ideia de através das series temporais a aplicaçã
 de preços utilizando uma abordagem de monte Carlo/ processos estocásticos por caminhos aleatórios e a utilização do modelo ARIMA de Machine Learning.
 
 ## Modelo estocástico empregado
-Explicar o modelo estocástico que foi utilizado para simulação dos preços dos ativos
-Modelo com adição de tendência 
+### Passeio Aleatório
+
+Um passeio aleatório é um processo que descreve um caminho resultante de uma série de
+passos aleatórios. A cada passo, existe uma equiprobabilidade do processo ir para um estado ou
+outro e a regra de transição de estados é definida arbitrariamente.
+Dessa forma, em um processo de caminho aleatório, definimos que o valor atual da
+estatística que se quer determinar está relacionado com o valor em um instante imediatamente
+anterior somado de um número aleatório, chamado de white noise e que consiste em uma
+amostra aleatória de uma distribuição normal. 
+
+<p align="center">
+$y_t = y_(t-1) + \epsilon$
+</p>
+
+No contexto de séries temporais, um caminho aleatório é definido como uma série em que a
+primeira diferença é estacionária e não-correlacionada.
+
+<p align="center">
+$\sum_{i=1}^{T} \epsilon_t$
+</p>
+
+### Simulação de Monte Carlo
+
+Método utilizado para estimar o valor médio de uma variável aleatória com distribuição
+desconhecida através de um procedimento de inferência estatística.
+Uma amostra aleatória tende a exibir propriedades da população a que pertence. Dessa
+forma, podemos inferir propriedades de uma variável aleatória coletando uma série de amostras
+aleatórias independentemente e analisando o resultado médio obtido. Se o número de amostras for
+suficientemente grande, temos que a distribuição dos resultados tenderá para uma distribuição
+Gaussiana ao redor do resultado verdadeiro.
 
 ## Modelo Arima 
 Descrever como ele funciona. Por quais razões utiliza-se esse modelo para séries temporais
