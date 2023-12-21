@@ -80,7 +80,7 @@ A função de autocorrelação (ACF) é utilizada para determinar a intensidade 
 lineares entre dados históricos de uma série temporal. Ela mostra como a correlação entre duas
 variáveis aleatórias se comporta quando aumentamos o intervalo entre elas.
 Quando uma série temporal estacionária apresenta um perfi de autocorrelação, podemos
-modelar esta série através de um \textit{Modelo de Médias Móveis(MA)}, um \textit{Modelo Autoregressivo(AR)} e também \textit{Modelo de Médias Móveis Autoregressivas(ARMA)}
+modelar esta série através de um *Modelo de Médias Móveis(MA)*, um *Modelo Autoregressivo(AR)* e também *Modelo de Médias Móveis Autoregressivas(ARMA)*
 
 ### Modelo de Médias Móveis
 
