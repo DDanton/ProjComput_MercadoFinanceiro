@@ -38,8 +38,103 @@ suficientemente grande, temos que a distribuição dos resultados tenderá para 
 Gaussiana ao redor do resultado verdadeiro.
 
 ## Modelo Arima 
-Descrever como ele funciona. Por quais razões utiliza-se esse modelo para séries temporais
-Método de achar os hiperparâmetros AIC
+### Estacionariedade
+
+Uma série temporal é considerada estacionária quando propriedades estatísticas não variam
+temporalmente: sua média, sua variância e seu perfil de autocorrelação são grandezas independentes
+do tempo.
+Entretanto, podemos transformar uma série não-estacionária em estacionária através de
+operações de transformação.
+A transformação mais simples e também utilizada nesse estudo é o método da diferenciação,
+que procura estabilizar a variação da média e reduzir possíveis tendências e efeitos de sazonalidade.
+
+A diferenciação de uma série temporal consiste no cálculo da série de variações
+experienciadas pela função de um passo $y_t$ para o segunte $y_{t-1}$. Assim:
+
+<p align="center">
+$y'_t = y_t - y_{t-1}$
+</p>
+
+Pode ser necessário que se realize o processo de diferenciação mais de uma vez para que se
+garanta que uma série temporal tornou-se estacionária; além disso, logaritmo de uma série temporal
+tende a apresentar uma variância mais estável.
+Quando diferenciamos uma série temporal e então a modelamos, devemos destransformar
+os resultados obtidos pelo modelo para garantir a consistência dos resultados.
+
+### Teste de Estacionariedade
+
+Depois de aplicar-se uma diferenciação, é necessário que se verifique se a nova série obtida
+é estacionária. Caso não seja, um novo processo de diferenciação deve ser realizado.
+Um teste comum realizado para verificação desta condição é o Teste Aumentado de Dickey-
+Fuller (Augmented Dickey-Fuller), que consiste em um teste de hipótese onde tem-se como
+hipótese nula a condição de que a série apresente uma raíz unitária.
+O resultado deste teste é um escalar negativo que, quanto mais negativo for, maior é a
+necessidade de se reiejtar a hipótese nula. Quanto a rejeitamos, garantimos que o sistema é
+estacionário e que o número de diferenciações já realizadas é suficiente.
+A existência de uma raíz unitária em uma série temporal implica que a média desta série tem
+uma relação de dependência com o tempo e, portanto, não é estacionária.
+
+### Função de Autocorrelação
+
+A função de autocorrelação (ACF) é utilizada para determinar a intensidade de relações
+lineares entre dados históricos de uma série temporal. Ela mostra como a correlação entre duas
+variáveis aleatórias se comporta quando aumentamos o intervalo entre elas.
+Quando uma série temporal estacionária apresenta um perfi de autocorrelação, podemos
+modelar esta série através de um \textit{Modelo de Médias Móveis(MA)}, um \textit{Modelo Autoregressivo(AR)} e também \textit{Modelo de Médias Móveis Autoregressivas(ARMA)}
+
+### Modelo de Médias Móveis
+
+O modelo de médias móveis é definido quando o valor atual de uma determinada estatística
+é linearmente dependente dos resíduos atual e passados. Assume-se que os resíduos são mutuamente
+independentes e normalmente distribuídos, assim como o white noise para o random walk.
+Um modelo de médias móveis é definido como *MA(q)*, onde *q* representa o número de
+resíduos históricos que afetam a estatística atual. O modelo representa o valor atual como uma
+combinação linear da média da série temporal $\mu$, do termo de erro atual e dos termos de erro
+históricos. A magnitude da influência de resíduos históricos na determinação do valor atual é
+qunatificado pelo coeficiente $\theta_q$ . A ordem *q* é determinada aumentando o intervalo entre o valor atual e o último dado histórico considerado até que não se observe mais termos de autocorrelação significativos.
+
+<p align="center">
+$y_t = \mu + \epsilon_t + \theta_1\epsilon_{t-1} + \theta_2\epsilon_{t-2} + ... + \theta_q\epsilon_{t-q}$
+</p>
+
+Note que, quando tentamos predizer dados para um intervalo maior que a ordem q,
+obteremos um resultado tendencioso que tenderá para a média da série, uma vez que os resíduos
+não serão mais observáveis.
+
+### Modelo Auregressivo
+
+Um processo autoregressivo estabelece que o valore atual de uma determinada série
+temporal apresenta um perfil de dependência linear com os seus valores históricos. É uma regressão
+da variável sobre si mesma.
+Um *processo autoregressivo* é definido como *AR(p)*, onde *p* representa o número de valores históricos que exercem influência sobre a definição do valo atual e a magnitude da influência dos valores passados sobre o valor atual é determinada por $\phi_p$ . O valor atual da série temporal é determinado através de uma combinação linear entre uma constante $C$, o resíduo atual (white noise) e os valores históricos da série. Assim:
+
+<p align="center">
+$y_t = C + \epsilon_t + \phi_1 y_{t-1} + \phi_2 t_{t-2} + ... + \phi_q y_{t-q}$
+</p>
+
+O modelo do passeio aleatório é um caso especial do modelo autoregressivo quando a ordem
+*p* = 1 e a magnitude $\phi_p=1$
+Para determinar a ordem de *p*, devemos plotar um gráfico de uma função de autocorrelação
+parcial, definida como uma função de autocorrelação em que a influência da correlação entre dados
+históricos contidos no intervalo [0,p] são desconsiderados. Assim, obtém-se a autocorrelação parcial
+entre os valores $y_t$ e $y_p$. A partir de *p*, as autocorrelações parciais não apresentam valores significativos.
+
+### ARIMA - Autoregressive Integrated Moving Average Model
+
+Anteriormente, foram apresentados modelos de predição para uma série temporal que
+apresentam resultados consistentes quando a série em estudo é garantidamente estacionária.
+Entretanto, quando buscamos predizer valores futuros de uma série temporal que não é
+estacionária, pode se implementar um novo modelo que inclua, de alguma forma, os efeitos
+produzidos pela não-estacionariedade da série, ou definir um método de transformar uma série não-
+estacionária em estacionária.
+Assim, podemos definir o ARIMA, que é a combinação de um modelo Autoregressivo com
+um modelo de Médias Móveis somado de um novo parâmetro *I(d)* chamado integração, onde *d*
+define a ordem de diferenciação, representando o número de vezes que a série temporal precisou ser
+diferenciada para se tornar estacionária. Neste modelo, o valor atual é dependente tanto dos valorespassados *AR(p)* quanto dos resíduos passados *MA(q)* Entretanto, ao invés de se utilizar como
+base a série temporal, utiliza-se a série diferenciada.
+Dessa forma, o *ARIMA(p,d,q)* define que o valor atual de uma série temporal diferenciada é
+resultado da combinação linear de valores históricos e dos resíduos da série diferenciada, da média
+da série diferenciada.
 
 [Python-Forecast Book]: 
 
