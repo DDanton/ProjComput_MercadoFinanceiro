@@ -1,17 +1,4 @@
 # ProjPythonStockPrices
-![mCor1](./Plots/mCor1.png)
-![Douglas](./Plots/mCor2.png)
-![Douglas](./Plots/stockPrice.png)
-![Douglas](./Plots/movingAverage.png)
-![Douglas](./Plots/expMovingAverage.png)
-![Douglas](./Plots/100simulations.png)
-![Douglas](./Plots/bollingBands.png)
-![Douglas](./Plots/ARIMAforecastTest.png)
-![Douglas](./Plots/ARIMAforecastForClose.png)
-![Douglas](./Plots/ARIMAextrapolation.png)
-![Histogram](./Plots/Histgram.png)
-
-
 
 ## Descrição
 Este projeto tem como objetivo desenvolver funcionalidades que utilizem dados de ações retirados e tratados da biblioteca
@@ -233,12 +220,19 @@ analyzer = StockAnalyzer(['AMZN', 'GLD', 'LMT', 'XLF', 'XLI'], start_date='2020-
 # Plotar matriz de correlação
 analyzer.plot_correlation_matrix()
 
+
+
 # Plotar pairplot
 analyzer.plot_pairplot()
+
+
 
 # Plotar retornos ao longo do tempo
 analyzer.plot_returns_over_time(separate_plots=True)
 ```
+![mCor1](./Plots/mCor1.png)
+![mCor2](./Plots/mCor2.png)
+![OverTime](./Plots/OverTime.png)
 
 # Função `PriceSimulationFunc`
 
@@ -259,9 +253,9 @@ from data_utils import stock_data
 googl = stock_data('GOOGL')
 
 # Executar simulação de preços com distribuição de Mixture of Gaussians
-PriceSimulationFunc(googl, steps=20, distribution='MixGaussians')
+PriceSimulationFunc(googl, steps=10, num_simulations=100, distribution='MixGaussians')
 ```
-
+![simulations](./Plots/100simulations.png)
 # Classe `StockPlotter`
 
 A classe `StockPlotter` é uma ferramenta para visualização de dados históricos de preços de ações, proporcionando facilidade na criação de gráficos informativos e análises visuais.
@@ -427,7 +421,9 @@ aapl_predictor.plot_result(close_model)
 aapl_predictor.plot_test(close_model)
 aapl_predictor.extrapolate_test(close_model,future_steps =100)
 ```
-
+![ARIMA1](./Plots/ARIMAforecastTest.png)
+![ARIMA2](./Plots/ARIMAforecastForClose.png)
+![ARIMA3](./Plots/ARIMAextrapolation.png)
 
 # 
 #
