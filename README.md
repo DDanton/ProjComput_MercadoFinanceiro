@@ -120,7 +120,7 @@ googl = stock_data('GOOGL')
 return_distributions(googl, distribution='normal', mode='standard')
 ```
 
-![Distrib](./Plots/Distribu.png){:width="100px"}
+![Distrib](./Plots/Distribu.png)
 
 ##  Módulo `gaussian_mix`
 Funções desse módulo:
