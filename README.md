@@ -9,6 +9,9 @@
 ![Douglas](./Plots/ARIMAforecastTest.png)
 ![Douglas](./Plots/ARIMAforecastForClose.png)
 ![Douglas](./Plots/ARIMAextrapolation.png)
+![Histogram](./Plots/Histgram.png)
+![Histogram](./Plots/Mixture.png)
+![Histogram](./Plots/Distribu.png)
 
 ## Descrição
 Este projeto tem como objetivo desenvolver funcionalidades que utilizem dados de ações retirados e tratados da biblioteca
