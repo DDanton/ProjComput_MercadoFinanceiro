@@ -1,5 +1,5 @@
 # ProjPythonStockPrices
-![Douglas](./Plots/mCor1.png)
+![mCor1](./Plots/mCor1.png)
 ![Douglas](./Plots/mCor2.png)
 ![Douglas](./Plots/stockPrice.png)
 ![Douglas](./Plots/movingAverage.png)
@@ -10,8 +10,8 @@
 ![Douglas](./Plots/ARIMAforecastForClose.png)
 ![Douglas](./Plots/ARIMAextrapolation.png)
 ![Histogram](./Plots/Histgram.png)
-![Histogram](./Plots/Mixture.png)
-![Histogram](./Plots/Distribu.png)
+
+
 
 ## Descrição
 Este projeto tem como objetivo desenvolver funcionalidades que utilizem dados de ações retirados e tratados da biblioteca
@@ -133,7 +133,7 @@ googl = stock_data('GOOGL')
 return_distributions(googl, distribution='normal', mode='standard')
 ```
 
-################
+![Distrib](./Plots/Distribu.png)
 
 ##  Módulo `gaussian_mix`
 Funções desse módulo:
@@ -166,7 +166,7 @@ googl = stock_data('GOOGL')
 # Gerar gráfico de modelo de mistura para retornos padrão
 MixtureModel(googl, mode='normal')
 ```
-
+![Mix](./Plots/Mixture.png)
 # Classe `StockAnalyzer`
 
 A classe `StockAnalyzer` é responsável por analisar e visualizar dados históricos de retornos de ações. Ela oferece funcionalidades para carregar dados, calcular retornos e gerar visualizações informativas.
