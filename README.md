@@ -136,7 +136,7 @@ Dessa forma, o *ARIMA(p,d,q)* define que o valor atual de uma série temporal di
 resultado da combinação linear de valores históricos e dos resíduos da série diferenciada, da média
 da série diferenciada.
 
-[Python-Forecast Book]: 
+[Python-Forecast Book]: PEIXEIRO, Marco. Time series forecasting in python. Simon and Schuster, 2022.
 
 ## Bibliotecas Necessárias
 
