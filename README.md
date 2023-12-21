@@ -228,7 +228,7 @@ Plota os retornos das ações ao longo do tempo.
 from analytics import StockAnalyzer
 
 # Criar uma instância de StockAnalyzer
-analyzer = StockAnalyzer(['AAPL', 'GOOGL'], start_date='2020-01-01')
+analyzer = StockAnalyzer(['AMZN', 'GLD', 'LMT', 'XLF', 'XLI'], start_date='2020-01-01')
 
 # Plotar matriz de correlação
 analyzer.plot_correlation_matrix()
