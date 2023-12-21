@@ -334,15 +334,12 @@ Para utilizar a classe `StockPlotter`, primeiro, instancie um objeto da classe c
 
 ```python
 from plotter.py import StockPlotter
-
-# Criar uma instância do StockPlotter para a ação 'AAPL' com início em '2022-01-01'
+ticker = ['AAPL','AMZN']
+# Criar uma instância do StockPlotter para as ações com início em '2022-01-01'
 plotter_aapl = StockPlotter(ticker='AAPL', start_date='2022-01-01')
 
 # Plotar o preço de fechamento da ação ao longo do tempo
 plotter_aapl.plot_stock(column='Close', title='AAPL Stock Price Over Time', figsize=(12, 8))
-
-# Plotar os preços de fechamento e abertura da ação ao longo do tempo
-plotter_aapl.plot_multiple_stocks(columns=['Close', 'Open'], title='AAPL Closing and Opening Prices Over Time', figsize=(12, 8))
 
 # Plotar a média móvel de 20 dias do preço de fechamento da ação
 plotter_aapl.plot_moving_average(column='Close', window=20, title='AAPL 20-Day Moving Average', figsize=(12, 8))
