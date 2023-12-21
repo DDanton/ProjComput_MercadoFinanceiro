@@ -9,7 +9,10 @@ from stats_time_series import diff_times_return, diff_times_prices
 from arima_forecast import ARIMAPredictor
 import matplotlib.pyplot as plt
 import pandas as pd
-    
+
+plt.rcParams['font.family']= 'serif'
+plt.rcParams['font.size'] = 12    
+
 if __name__ == "__main__":
     googl = stock_data('GOOGL')
 # Exemplo de uso com parâmetros ajustados
@@ -29,10 +32,11 @@ if __name__ == "__main__":
     analyzer = StockAnalyzer(stocks_list, start_date=start_date)
     analyzer.plot_correlation_matrix()
     analyzer.plot_pairplot()'''
-    
     #analyzer.plot_returns_over_time(separate_plots=False)  # Altere para False para todos os valores no mesmo plot
     #MixtureModel(googl, mode='log')
-    #PriceSimulationFunc(data=googl, steps=100, distribution='MixGaussians')]
+
+    #PriceSimulationFunc(data=googl, steps=10, num_simulations=100, distribution='MixGaussians', ticker_title=None)
+
     
     # Exemplo de uso
     '''ticker = ['AAPL','AMZN']
@@ -43,7 +47,7 @@ if __name__ == "__main__":
     plotter.plot_bollinger_bands()
     plotter.plot_exponential_moving_average(span=30)
     PriceSimulationFunc_trend(googl, steps=100, num_simulations=100, distribution='MixGaussians', trend='up', trend_strength=1.)'''
-    
+
     # Exemplo de uso para 'Close'
     '''aapl = stock_data('AAPL')
     aapl['Date'] = pd.to_datetime(aapl['Date'])
