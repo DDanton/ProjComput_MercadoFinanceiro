@@ -39,17 +39,17 @@ if __name__ == "__main__":
 
     
     # Exemplo de uso
-    '''ticker = ['AAPL','AMZN']
+    ticker = ['AAPL','AMZN']
     plotter = StockPlotter(ticker)
     plotter.plot_stock()
     #plotter.plot_multiple_stocks(['AAPL','SBUX'],columns=['Close'], title='Stock Prices')
     plotter.plot_moving_average(window=50)
     plotter.plot_bollinger_bands()
     plotter.plot_exponential_moving_average(span=30)
-    PriceSimulationFunc_trend(googl, steps=100, num_simulations=100, distribution='MixGaussians', trend='up', trend_strength=1.)'''
+    PriceSimulationFunc_trend(googl, steps=100, num_simulations=100, distribution='MixGaussians', trend='up', trend_strength=1.)
 
     # Exemplo de uso para 'Close'
-    '''aapl = stock_data('AAPL')
+    aapl = stock_data('AAPL')
     aapl['Date'] = pd.to_datetime(aapl['Date'])
     aapl.set_index('Date', inplace=True)
     aapl = aapl.dropna()
@@ -57,6 +57,6 @@ if __name__ == "__main__":
     close_model = aapl_predictor.fit_model()
     aapl_predictor.plot_result(close_model)
     aapl_predictor.plot_test(close_model)
-    aapl_predictor.extrapolate_test(close_model,future_steps =100)'''
+    aapl_predictor.extrapolate_test(close_model,future_steps =100)
 
 
