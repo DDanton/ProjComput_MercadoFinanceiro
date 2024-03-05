@@ -31,9 +31,10 @@ if __name__ == "__main__":
     start_date = '2020-01-01'  # Especifique a data de início desejada
     analyzer = StockAnalyzer(stocks_list, start_date=start_date)
     analyzer.plot_correlation_matrix()
-    analyzer.plot_pairplot()'''
-    #analyzer.plot_returns_over_time(separate_plots=False)  # Altere para False para todos os valores no mesmo plot
-    #MixtureModel(googl, mode='log')
+    analyzer.plot_pairplot()
+    analyzer.plot_returns_over_time(separate_plots=False)  # Altere para False para todos os valores no mesmo plot'''
+    
+    MixtureModel(googl, mode='log', color='red')
 
     #PriceSimulationFunc(data=googl, steps=10, num_simulations=100, distribution='MixGaussians', ticker_title=None)
 
